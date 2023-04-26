@@ -1,0 +1,23 @@
+/*7ff6ff  FF887F*/
+.header{
+    background: linear-gradient(#ff3c3c, transparent);
+    max-width: 100%;
+    width: 100%;
+    display: flex;
+    font-size: 1.3em;
+}
+@font-face {
+    font-family: 'Fugaz One';
+    src: url(FugazOne-Regular.ttf);
+}
+.header .logo-text{
+    font-size: 1.3em;
+    color: #000000;
+    font-family: 'Fugaz One';
+    margin-top: 0.35em;
+    user-select: none;
+}
+.header .link:hover{
+    text-decoration: underline #ff3c3c solid 3px;
+    margin-top: -0.2em;
+}

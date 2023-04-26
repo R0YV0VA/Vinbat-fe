@@ -1,0 +1,14 @@
+.footer{
+    background-image: linear-gradient(transparent, #ff3c3c);
+}
+@font-face {
+    font-family: 'Fugaz One';
+    src: url(FugazOne-Regular.ttf);
+}
+.footer .logo-text{
+    font-size: 0.7em;
+    color: #000000;
+    font-family: 'Fugaz One';
+    margin-top: 0.35em;
+    user-select: none;
+}
