@@ -4,6 +4,7 @@ import routes from '../../routes';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate  } from 'react-router-dom'
 import { loginAsync } from '../../redux/actions';
+import Loading from '../../components/Loading/Loading';
 
 import './Login.css';
 
@@ -25,7 +26,7 @@ const Login = () => {
     }
 return (
     <div className='main'>
-        {isLoading ? <h1>AAAAAAAAAA</h1> : null}
+        {isLoading && <Loading />}
         <div className='login'>
             <h1>Вхід</h1>
             <div className='form-group'>

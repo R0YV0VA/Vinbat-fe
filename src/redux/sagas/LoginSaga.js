@@ -20,7 +20,7 @@ const loginRequest = (credentials) => {
                 resolve(response);
             })
             .catch(error => {
-                resolve(error.response);
+                resolve(error);
             })
     })
 }
@@ -48,7 +48,7 @@ function* loginWorker(cred) {
         window.location.href = routes.HOME;
     } else {
         yield put(loading(false));
-        alert(response.data.title);
+        alert(response.message);
     }
 }
 

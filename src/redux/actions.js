@@ -45,6 +45,8 @@ export const registerAsync = (credentials) => {
 export const loading = (isLoading) => {
     return {
         type: ACTIONS.IS_LOADING,
-        payload: isLoading
+        payload: {
+            isLoading
+        }
     }
 }
