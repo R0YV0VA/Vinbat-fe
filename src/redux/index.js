@@ -1,5 +1,6 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import LoginReducer from './reducers/LoginReducer';
+import RegisterReducer from './reducers/RegisterReducer';
 import LoadingReducer from './reducers/LoadingReducer';
 import createSagaMiddleware from 'redux-saga';
 import rootWatcher from './sagas';
@@ -9,6 +10,7 @@ const sagaMiddleware = createSagaMiddleware();
 
 const rootReducer = combineReducers({
     login: LoginReducer,
+    register: RegisterReducer,
     loading: LoadingReducer,
 });
 
