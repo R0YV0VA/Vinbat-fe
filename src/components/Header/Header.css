@@ -41,7 +41,10 @@
 
 }
 
-.header .link:hover::after {
-    left: 10%;
-    width: 80%;
+@media (any-hover:hover) {
+    .header .link:hover::after {
+        left: 10%;
+        width: 80%;
+    }
 }
+
