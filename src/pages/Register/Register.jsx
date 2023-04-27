@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import routes from '../../routes';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate  } from 'react-router-dom'
-import { registerAsync } from '../../redux/actions';
+import { registerAsync, alertAsync } from '../../redux/actions';
 import Loading from '../../components/Loading/Loading';
 import PhoneInput from 'react-phone-input-2'
 import Alert from '../../components/Alert/Alert';
@@ -22,11 +22,30 @@ const Register = () => {
 
     const validate = () => {
         if (password !== repassword) {
-            alert('Паролі не співпадають')
+            const alertProps = {
+                isAlert: true,
+                type: 'warning',
+                message: 'Паролі не співпадають'
+            }
+            dispatch(alertAsync(alertProps))
             return false
         }
         if (password.length < 6) {
-            alert('Пароль має бути не менше 6 символів')
+            const alertProps = {
+                isAlert: true,
+                type: 'warning',
+                message: 'Пароль має бути не менше 6 символів'
+            }
+            dispatch(alertAsync(alertProps))
+            return false
+        }
+        if (login.length < 10) {
+            const alertProps = {
+                isAlert: true,
+                type: 'warning',
+                message: 'Невірний номер телефону'
+            }
+            dispatch(alertAsync(alertProps))
             return false
         }
         return true
