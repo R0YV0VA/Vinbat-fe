@@ -4,6 +4,8 @@ const ACTIONS = Object.freeze({
     REGISTER: 'REGISTER',
     REGISTER_ASYNC: 'REGISTER_ASYNC',
     IS_LOADING: 'IS_LOADING',
+    ALERT: 'ALERT',
+    ALERT_ASYNC: 'ALERT_ASYNC',
 });
 
 export default ACTIONS;

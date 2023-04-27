@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import Cookies from 'universal-cookie'
 import routes from '../../routes';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate  } from 'react-router-dom'
@@ -7,6 +6,7 @@ import { loginAsync } from '../../redux/actions';
 import Loading from '../../components/Loading/Loading';
 import PhoneInput from 'react-phone-input-2'
 
+import Alert from '../../components/Alert/Alert';
 import './Login.css';
 
 
@@ -16,7 +16,7 @@ const Login = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const isLoading = useSelector(state => state.loading.isLoading)
-    const cookies = new Cookies();
+    const isAlert = useSelector(state => state.alert.isAlert)
     
     const makeLogin = () => {
     const credentials = {
@@ -28,6 +28,7 @@ const Login = () => {
     }
 return (
     <div className='main'>
+        {isAlert && <Alert />}
         {isLoading && <Loading />}
         <div className='login'>
             <h1>Вхід</h1>

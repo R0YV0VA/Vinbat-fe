@@ -1,6 +1,6 @@
 import { put, takeEvery, call } from 'redux-saga/effects';
 import ACTIONS from '../constants';
-import { login, loading } from '../actions';
+import { login, loading, alert } from '../actions';
 import axios from 'axios';
 import Cookies from 'universal-cookie'
 import routes from '../../routes';
@@ -47,7 +47,19 @@ function* loginWorker(cred) {
         window.location.href = routes.HOME;
     } else {
         yield put(loading(false));
-        alert(response.message);
+        var props = {
+            message: 'Упс, щось пішло не так...',
+            type: 'danger',
+            isAlert: true
+        }
+        yield put(alert(props));
+        yield new Promise(resolve => setTimeout(resolve, 3000));
+        props = {
+            message: '',
+            type: '',
+            isAlert: false
+        }
+        yield put(alert(props));
     }
 }
 

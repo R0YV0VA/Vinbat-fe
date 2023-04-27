@@ -50,3 +50,14 @@ export const loading = (isLoading) => {
         }
     }
 }
+
+export const alert = (props) => {
+    return {
+        type: ACTIONS.ALERT,
+        payload: {
+            message: props.message,
+            type: props.type,
+            isAlert: props.isAlert
+        }
+    }
+}

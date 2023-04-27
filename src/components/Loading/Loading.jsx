@@ -12,7 +12,6 @@ const Loading = () =>{
       }, []);
     return (
         <div className='loading'>
-            <h1>Завантаження</h1>
             <div id="loading-animation" className='loading-animation'></div>
         </div>
     );

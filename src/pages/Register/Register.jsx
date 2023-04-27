@@ -5,6 +5,7 @@ import { useNavigate  } from 'react-router-dom'
 import { registerAsync } from '../../redux/actions';
 import Loading from '../../components/Loading/Loading';
 import PhoneInput from 'react-phone-input-2'
+import Alert from '../../components/Alert/Alert';
 
 import './Register.css';
 
@@ -17,6 +18,7 @@ const Register = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const isLoading = useSelector(state => state.loading.isLoading)
+    const isAlert = useSelector(state => state.alert.isAlert)
 
     const validate = () => {
         if (password !== repassword) {
@@ -41,6 +43,7 @@ const Register = () => {
     }
 return (
     <div className='main'>
+        {isAlert && <Alert />}
         {isLoading && <Loading />}
         <div className='register'>
             <h1>Реєстрація</h1>

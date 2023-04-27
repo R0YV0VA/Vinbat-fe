@@ -1,0 +1,30 @@
+.alert{
+    position: fixed;
+    top: 0;
+    width: 100%;
+
+    animation: animation 3s;
+}
+strong{
+    font-weight: 700;
+}
+
+
+
+@keyframes animation {
+    0% {
+        transform: translate(0, -100%);
+    }
+
+    10% {
+        transform: translate(0, 0);
+    }
+
+    90% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(0, -100%);
+    }
+}
