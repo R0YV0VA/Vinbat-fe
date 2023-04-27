@@ -36,6 +36,19 @@ function* registerWorker(cred) {
     const response = yield call(registerRequest, credentials);
     if (response.status === 200) {
         yield put(loading(false));
+        var props = {
+            message: 'Успішно!',
+            type: 'success',
+            isAlert: true
+        }
+        yield put(alert(props));
+        yield new Promise(resolve => setTimeout(resolve, 3000));
+        props = {
+            message: '',
+            type: '',
+            isAlert: false
+        }
+        yield put(alert(props));
         window.location.href = routes.LOGIN;
     } else {
         var props = {

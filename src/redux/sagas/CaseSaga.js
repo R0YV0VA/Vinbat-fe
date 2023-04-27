@@ -1,20 +1,19 @@
 import { put, takeEvery, call } from 'redux-saga/effects';
 import ACTIONS from '../constants';
-import { login, loading, alert } from '../actions';
+import { addcase, loading, alert } from '../actions';
 import axios from 'axios';
-import Cookies from 'universal-cookie'
-import routes from '../../routes';
 
-const cookies = new Cookies();
 const ServerApi = axios.create({
     baseURL: process.env.REACT_APP_API_URL,
   });
 
-const loginRequest = (credentials) => {
+const caseRequest = (props) => {
     return new Promise((resolve, reject) => {
-        ServerApi.post('auth/login', {
-            login: credentials.login,
-            password: credentials.password
+        console.log(props);
+        ServerApi.post('cases', {
+            Username: props.username,
+            Connection: props.connection,
+            Message: props.message
         })
             .then(response => {
                 resolve(response);
@@ -25,24 +24,17 @@ const loginRequest = (credentials) => {
     })
 }
 
-const setCookie = (token) => {
-    return new Promise((resolve, reject) => {
-        cookies.set('token', token, { path: '/' });
-        resolve();
-    })
-}
-
-function* loginWorker(cred) {
+function* caseWorker(prop) {
     const payload = {
-        login: cred.payload.login,
-        password: cred.payload.password
+        username: prop.payload.username,
+        connection: prop.payload.connection,
+        message: prop.payload.message
     }
     yield put(loading(true));
-    const state = yield login(payload);
-    const credentials = state.payload;
-    const response = yield call(loginRequest, credentials);
+    const state = yield addcase(payload);
+    const caseprops = state.payload;
+    const response = yield call(caseRequest, caseprops);
     if (response.status === 200) {
-        yield call(setCookie, response.data);
         yield put(loading(false));
         var props = {
             message: 'Успішно!',
@@ -57,7 +49,6 @@ function* loginWorker(cred) {
             isAlert: false
         }
         yield put(alert(props));
-        window.location.href = routes.HOME;
     } else {
         yield put(loading(false));
         var props = {
@@ -76,6 +67,6 @@ function* loginWorker(cred) {
     }
 }
 
-export default function* loginWatcher() {
-    yield takeEvery(ACTIONS.LOGIN_ASYNC, loginWorker);
+export default function* caseWatcher() {
+    yield takeEvery(ACTIONS.CASE_ASYNC, caseWorker);
 }

@@ -61,3 +61,36 @@ export const alert = (props) => {
         }
     }
 }
+
+export const alertAsync = (props) => {
+    return {
+        type: ACTIONS.ALERT_ASYNC,
+        payload: {
+            message: props.message,
+            type: props.type,
+            isAlert: props.isAlert
+        }
+    }
+}
+
+export const addcase = (props) => {
+    return {
+        type: ACTIONS.CASE,
+        payload: {
+            username: props.username,
+            connection: props.connection,
+            message: props.message,
+        }
+    }
+}
+
+export const addcaseAsync = (props) => {
+    return {
+        type: ACTIONS.CASE_ASYNC,
+        payload: {
+            username: props.username,
+            connection: props.connection,
+            message: props.message,
+        }
+    }
+}

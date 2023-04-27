@@ -6,6 +6,8 @@ const ACTIONS = Object.freeze({
     IS_LOADING: 'IS_LOADING',
     ALERT: 'ALERT',
     ALERT_ASYNC: 'ALERT_ASYNC',
+    CASE: 'CASE',
+    CASE_ASYNC: 'CASE_ASYNC',
 });
 
 export default ACTIONS;

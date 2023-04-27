@@ -3,6 +3,7 @@ import LoginReducer from './reducers/LoginReducer';
 import RegisterReducer from './reducers/RegisterReducer';
 import LoadingReducer from './reducers/LoadingReducer';
 import AlertReducer from './reducers/AlertReducer';
+import CaseReducer from './reducers/CaseReducer';
 import createSagaMiddleware from 'redux-saga';
 import rootWatcher from './sagas';
 import { composeWithDevTools } from 'redux-devtools-extension';
@@ -13,7 +14,8 @@ const rootReducer = combineReducers({
     login: LoginReducer,
     register: RegisterReducer,
     loading: LoadingReducer,
-    alert: AlertReducer
+    alert: AlertReducer,
+    case: CaseReducer,
 });
 
 const store = createStore(
