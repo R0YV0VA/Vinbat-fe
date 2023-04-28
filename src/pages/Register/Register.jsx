@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate  } from 'react-router-dom'
 import { registerAsync, alertAsync } from '../../redux/actions';
 import Loading from '../../components/Loading/Loading';
-import PhoneInput from 'react-phone-input-2'
+import validator from 'validator'
 import Alert from '../../components/Alert/Alert';
 
 import './Register.css';
@@ -39,11 +39,11 @@ const Register = () => {
             dispatch(alertAsync(alertProps))
             return false
         }
-        if (login.length < 10) {
+        if (!validator.isEmail(login)) {
             const alertProps = {
                 isAlert: true,
                 type: 'warning',
-                message: 'Невірний номер телефону'
+                message: 'Невірна електронна пошта'
             }
             dispatch(alertAsync(alertProps))
             return false
@@ -70,7 +70,7 @@ return (
                 <label htmlFor='name'>Ім'я</label>
                 <input type='text' className='form-control' id='name' placeholder="Введіть ім'я" onChange={(e) => setName(e.target.value)} />
                 <label htmlFor='login'>Телефон</label>
-                <PhoneInput specialLabel='' id='phone' country={'ua'} value={login} onChange={(e) => setLogin(e)} placeholder='380 (97) 000 00 00' />
+                <input type='email' id='email' className='form-control' value={login} onChange={(e) => setLogin(e.target.value)} placeholder='user@email.com' />
                 <label htmlFor='password'>Пароль</label>
                 <input type='password' className='form-control' id='password' placeholder='Введіть пароль' onChange={(e) => setPassword(e.target.value)} />
                 <label htmlFor='password'>Повторіть пароль</label>

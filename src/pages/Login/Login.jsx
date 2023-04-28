@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate  } from 'react-router-dom'
 import { loginAsync } from '../../redux/actions';
 import Loading from '../../components/Loading/Loading';
-import PhoneInput from 'react-phone-input-2'
 
 import Alert from '../../components/Alert/Alert';
 import './Login.css';
@@ -34,8 +33,8 @@ return (
         <div className='login'>
             <h1>Вхід</h1>
             <div className='form-group'>
-                <label htmlFor='login'>Телефон</label>
-                <PhoneInput specialLabel='' id='phone' country={'ua'} value={login} onChange={(e) => setLogin(e)} placeholder='380 (97) 000 00 00' />
+                <label htmlFor='login'>Електронна пошта</label>
+                <input type='email' id='email' className='form-control' value={login} onChange={(e) => setLogin(e.target.value)} placeholder='user@email.com' />
                 <label htmlFor='password'>Пароль</label>
                 <input type='password' className='form-control' id='password' placeholder='Введіть пароль' value={password} onChange={(e) => setPassword(e.target.value)} />
                 <button className='btn' onClick={makeLogin}>Увійти</button>
