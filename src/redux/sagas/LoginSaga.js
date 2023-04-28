@@ -37,6 +37,7 @@ function* loginWorker(cred) {
         login: cred.payload.login,
         password: cred.payload.password
     }
+    console.log(payload);
     yield put(loading(true));
     const state = yield login(payload);
     const credentials = state.payload;
@@ -44,6 +45,7 @@ function* loginWorker(cred) {
     if (response.status === 200) {
         yield call(setCookie, response.data);
         yield put(loading(false));
+        window.location.href = routes.HOME;
         var props = {
             message: 'Успішно!',
             type: 'success',
@@ -57,7 +59,6 @@ function* loginWorker(cred) {
             isAlert: false
         }
         yield put(alert(props));
-        window.location.href = routes.HOME;
     } else {
         yield put(loading(false));
         var props = {

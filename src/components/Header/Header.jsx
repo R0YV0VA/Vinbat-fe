@@ -35,7 +35,7 @@ const Header = () =>{
                   </NavDropdown.Item>
                 </NavDropdown> 
                 :
-                <Nav.Link className='link' href={routes.HOME}>
+                <Nav.Link className='link' href={routes.MY_ACCOUNT}>
                     Мій профіль
                     </Nav.Link>
             }

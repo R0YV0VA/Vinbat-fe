@@ -8,6 +8,8 @@ const ACTIONS = Object.freeze({
     ALERT_ASYNC: 'ALERT_ASYNC',
     CASE: 'CASE',
     CASE_ASYNC: 'CASE_ASYNC',
+    SET_MY_ACCOUNT: 'MY_ACCOUNT',
+    SET_MY_ACCOUNT_ASYNC: 'MY_ACCOUNT_ASYNC',
 });
 
 export default ACTIONS;

@@ -5,6 +5,7 @@ const routes = Object.freeze({
     LOGIN: '/login',
     REGISTER: '/register',
     SUPPORT: '/support',
+    MY_ACCOUNT: '/my-account',
 });
 
 export default routes;

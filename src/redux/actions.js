@@ -94,3 +94,22 @@ export const addcaseAsync = (props) => {
         }
     }
 }
+
+export const setMyAccount = (props) => {
+    return {
+        type: ACTIONS.SET_MY_ACCOUNT,
+        payload: {
+            name: props.name,
+            login: props.login,
+            purchasesAmount: props.purchasesAmount,
+            discount: props.discount,
+            status: props.status,
+        }
+    }
+}
+
+export const setMyAccountAsync = () => {
+    return {
+        type: ACTIONS.SET_MY_ACCOUNT_ASYNC
+    }
+}
