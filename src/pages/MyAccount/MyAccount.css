@@ -1,0 +1,72 @@
+.main {
+  display: flex;
+  margin-top: 50px;
+}
+.myAccount {
+  width: 95%;
+  display: flex;
+  flex-direction: row;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  padding: 20px;
+}
+@media (max-width: 800px) {
+    .myAccount {
+        flex-direction: column;
+    }
+}
+.myAccount .myAccount__info {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.myAccount .myAccount__info h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+.myAccount .myAccount__info p{
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+.myAccount .myAccount__info button{
+    width: 200px;
+    height: 50px;
+    background-color: #ff3c3c;
+    color: #fff;
+    border: 1px solid #ff3c3c;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.myAccount .myAccount__info button:hover{
+    background-color: transparent;
+    color: #ff3c3c;
+}
+.myAccount .myAccount__about {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.myAccount .myAccount__about h1{
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+.myAccount .myAccount__about p{
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+}

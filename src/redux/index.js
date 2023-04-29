@@ -5,6 +5,7 @@ import LoadingReducer from './reducers/LoadingReducer';
 import AlertReducer from './reducers/AlertReducer';
 import CaseReducer from './reducers/CaseReducer';
 import MyAccountReducer from './reducers/MyAccountReducer';
+import IsLoggedInReducer from './reducers/IsLoogedInReducer';
 import createSagaMiddleware from 'redux-saga';
 import rootWatcher from './sagas';
 import { composeWithDevTools } from 'redux-devtools-extension';
@@ -18,6 +19,7 @@ const rootReducer = combineReducers({
     alert: AlertReducer,
     case: CaseReducer,
     myAccount: MyAccountReducer,
+    isLoggedIn: IsLoggedInReducer
 });
 
 const store = createStore(

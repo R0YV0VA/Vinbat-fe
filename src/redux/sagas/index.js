@@ -4,6 +4,7 @@ import registerWatcher from "./RegisterSaga";
 import caseWatcher from "./CaseSaga";
 import alertWatcher from "./AlertSaga";
 import myAccountWatcher from "./MyAccountSaga";
+import isLoggedInWatcher from "./IsLoggedInSaga";
 
 export default function* rootWatcher() {
     yield all([
@@ -12,5 +13,6 @@ export default function* rootWatcher() {
         caseWatcher(),
         alertWatcher(),
         myAccountWatcher(),
+        isLoggedInWatcher()
     ])
 }

@@ -113,3 +113,18 @@ export const setMyAccountAsync = () => {
         type: ACTIONS.SET_MY_ACCOUNT_ASYNC
     }
 }
+
+export const isLoggedIn = (isLogged) => {
+    return {
+        type: ACTIONS.IS_LOGGED_IN,
+        payload: {
+            isLogged
+        }
+    }
+}
+
+export const isLoggedInAsync = () => {
+    return {
+        type: ACTIONS.IS_LOGGED_IN_ASYNC
+    }
+}

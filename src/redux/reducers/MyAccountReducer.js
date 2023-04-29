@@ -5,7 +5,7 @@ const initialState = {
     login: '',
     purchasesAmount: 0,
     discount: 0,
-    status: 0,
+    status: 1,
 }
 
 export default function MyAccountReducer (state = initialState, action) {

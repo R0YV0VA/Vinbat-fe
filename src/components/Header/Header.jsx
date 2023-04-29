@@ -1,13 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Nav, Navbar, Container, NavDropdown } from 'react-bootstrap';
 import Cookies from 'universal-cookie';
 import routes from '../../routes';
 import { useNavigate  } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux';
+import { isLoggedInAsync } from '../../redux/actions';
 import './Header.css';
 const Header = () =>{
   const cookies = new Cookies();
   const navigate = useNavigate();
-
+  const dispatch = useDispatch();
+  const isLogged = useSelector(state => state.isLoggedIn.isLogged)
+  useEffect(() => {
+    if (cookies.get('token') !== undefined) {
+      dispatch(isLoggedInAsync())
+    }
+  }, [])
     return (
         <Navbar className='header' collapseOnSelect expand="sm">
           <Container>
@@ -25,7 +33,7 @@ const Header = () =>{
               </Nav.Link>
               </div>
               <div className='link'>
-            { cookies.get('token') === undefined ?
+            { !isLogged ?
                 <NavDropdown title="Авторизація" id="collasible-nav-dropdown">
                   <NavDropdown.Item href={routes.LOGIN}>
                     Увійти

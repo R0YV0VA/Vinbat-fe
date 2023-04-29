@@ -27,6 +27,7 @@
     font-weight: 600;
     cursor: pointer;
     text-align: center;
+    transition: all 0.2s ease-in-out;
 }
 .search .search-button:hover {
     background-color: transparent;
