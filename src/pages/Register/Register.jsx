@@ -69,7 +69,7 @@ return (
             <div className='form-group'>
                 <label htmlFor='name'>Ім'я</label>
                 <input type='text' className='form-control' id='name' placeholder="Введіть ім'я" onChange={(e) => setName(e.target.value)} />
-                <label htmlFor='login'>Телефон</label>
+                <label htmlFor='login'>Електронна пошта</label>
                 <input type='email' id='email' className='form-control' value={login} onChange={(e) => setLogin(e.target.value)} placeholder='user@email.com' />
                 <label htmlFor='password'>Пароль</label>
                 <input type='password' className='form-control' id='password' placeholder='Введіть пароль' onChange={(e) => setPassword(e.target.value)} />

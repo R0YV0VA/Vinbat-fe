@@ -12,7 +12,9 @@ const ServerApi = axios.create({
 const isLoggedInRequest = () => {
     return new Promise((resolve, reject) => {
         ServerApi.get('users/is-logged', {
-            headers: { Authorization: `Bearer ${cookies.get('token')}` }
+            headers: { 
+                Authorization: `Bearer ${cookies.get('token')}`,
+            }
         })
             .then(response => {
                 resolve(response);
