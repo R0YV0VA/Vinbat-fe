@@ -1,4 +1,4 @@
-import { isDevelopment } from 'redux/constants'
+import { isDevelopment } from "../redux/constants"
 
 const COOKIE_DOMAIN = '37.72.47.240:3000'
 

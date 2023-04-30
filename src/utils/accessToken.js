@@ -1,4 +1,4 @@
-import { ACCESS_TOKEN } from 'redux/constants'
+import { ACCESS_TOKEN } from '../redux/constants'
 import { getCookie, setCookie, deleteCookie } from './cookie'
 
 // 14 weeks in seconds

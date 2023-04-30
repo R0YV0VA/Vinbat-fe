@@ -1,19 +1,15 @@
 import axios from 'axios'
-import debug from 'debug'
 import _isEmpty from 'lodash/isEmpty'
+import { getAccessToken } from '../utils/accessToken'
 
 const api = axios.create({
   baseURL: process.env.REACT_APP_API_URL,
 })
 
-debug('API: %s', process.env.REACT_APP_API_URL)
-
 api.interceptors.request.use(
   (config) => {
-    const token = ''
-    // get token func
+    const token = getAccessToken()
     if (token) {
-      // eslint-disable-next-line no-param-reassign
       config.headers.Authorization = `Bearer ${token}`
     }
     return config
@@ -23,13 +19,12 @@ api.interceptors.request.use(
   },
 )
 
-export const get = () =>
+export const getIsLogined = () =>
   api
-    .get('url')
-    .then((response) => response.data)
+    .get('users/is-logged')
+    .then((response) => response)
     .catch((error) => {
-      debug('%s', error)
-      throw _isEmpty(error.response.data?.message)
-        ? error.response.data
-        : error.response.data.message
+      throw _isEmpty(error?.message)
+        ? error.data?.message
+        : error.message
     })
