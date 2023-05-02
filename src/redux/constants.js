@@ -14,4 +14,7 @@ const ACTIONS = Object.freeze({
     IS_LOGGED_IN_ASYNC: 'IS_LOGGED_IN_ASYNC',
 });
 
+export const ACCESS_TOKEN = 'accessToken'
+export const isDevelopment = !process.env.NODE_ENV || process.env.NODE_ENV === 'development'
+
 export default ACTIONS;
