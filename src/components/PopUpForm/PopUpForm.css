@@ -1,0 +1,61 @@
+.popUpForm {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(53, 53, 53, 0.8);
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.popUpForm__content {
+  width: 400px;
+  height: fit-content;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 20px;
+  box-sizing: border-box;
+  position: relative;
+}
+.popUpForm__title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+.popUpForm h1 {
+  margin: 0;
+}
+.popUpForm button {
+    border: 1px #ff3c3c solid;
+    border-radius: 5px;
+    background-color: #ff3c3c;
+    color: #FFFFFF;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.2s ease-in-out;
+    width: 100%;
+    height: 40px;
+    margin-bottom: 10px;
+}
+.popUpForm button:hover {
+    background-color: transparent;
+    color: #ff3c3c;
+}
+.popUpForm p {
+  margin: 0;
+  margin-bottom: 20px;
+}
+.popUpForm input {
+  width: 100%;
+  height: 40px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 0 10px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}

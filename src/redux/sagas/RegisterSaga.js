@@ -34,6 +34,7 @@ function* registerWorker(cred) {
     const state = yield register(payload);
     const credentials = state.payload;
     const response = yield call(registerRequest, credentials);
+    console.log(response);
     if (response.status === 200) {
         yield put(loading(false));
         var props = {
@@ -50,6 +51,21 @@ function* registerWorker(cred) {
         }
         yield put(alert(props));
         window.location.href = routes.LOGIN;
+    } else if (response.request.status === 409) {
+        yield put(loading(false));
+        var props = {
+            message: 'Користувач з таким логіном вже існує!',
+            type: 'warning',
+            isAlert: true
+        }
+        yield put(alert(props));
+        yield new Promise(resolve => setTimeout(resolve, 3000));
+        props = {
+            message: '',
+            type: '',
+            isAlert: false
+        }
+        yield put(alert(props));
     } else {
         var props = {
             message: 'Упс, щось пішло не так...',

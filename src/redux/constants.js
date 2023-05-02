@@ -12,6 +12,7 @@ const ACTIONS = Object.freeze({
     SET_MY_ACCOUNT_ASYNC: 'MY_ACCOUNT_ASYNC',
     IS_LOGGED_IN: 'IS_LOGGED_IN',
     IS_LOGGED_IN_ASYNC: 'IS_LOGGED_IN_ASYNC',
+    IS_POP_UP_ACTIVE: 'IS_POP_UP_ACTIVE',
 });
 
 export const ACCESS_TOKEN = 'accessToken'

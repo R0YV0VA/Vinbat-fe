@@ -1,0 +1,17 @@
+input:focus{
+    outline: none;
+    border: 1px solid #ff3c3c;
+  }
+
+button {
+    border: 1px #ff3c3c solid;
+    background-color: #ff3c3c;
+    color: #FFFFFF;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.2s ease-in-out;
+}
+button:hover {
+    background-color: transparent;
+    color: #ff3c3c;
+}

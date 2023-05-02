@@ -128,3 +128,13 @@ export const isLoggedInAsync = () => {
         type: ACTIONS.IS_LOGGED_IN_ASYNC
     }
 }
+
+export const isPopUpActive = (props) => {
+    return {
+        type: ACTIONS.IS_POP_UP_ACTIVE,
+        payload: {
+            isActive: props.isActive,
+            type: props.type
+        }
+    }
+}
