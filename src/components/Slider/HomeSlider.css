@@ -10,6 +10,7 @@
 }
 .description {
     display: flex;
+    flex-direction: row;
 }
 .description .text-description {
     font-size: 1.5em;
@@ -29,3 +30,13 @@
     width: 50%;
     height: 100%;
 }
+@media (max-width: 800px) {
+    .description {
+      flex-direction: column;
+    }
+    .slick-slider {
+        margin-right: 0px;
+        width: 100%;
+        height: 100%;
+    }
+  }

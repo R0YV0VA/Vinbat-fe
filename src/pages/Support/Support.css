@@ -24,6 +24,11 @@
     align-items: center;
     justify-content: center;
 }
+@media (max-width: 800px) {
+    .support{
+        flex-direction: column;
+    }
+  }
 .support__contacts{
     display: flex;
     flex-direction: column;

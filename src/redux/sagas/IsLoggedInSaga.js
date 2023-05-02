@@ -13,7 +13,7 @@ const isLoggedInRequest = () => {
     return new Promise((resolve, reject) => {
         ServerApi.get('users/is-logged', {
             headers: { 
-                Authorization: `Bearer ${cookies.get('token')}`,
+                Authorization: `Bearer ${cookies.get('token')}`
             }
         })
             .then(response => {
@@ -27,6 +27,7 @@ const isLoggedInRequest = () => {
 
 function* isLoggedInWorker() {
     const response = yield call(isLoggedInRequest);
+    console.log(response);
     if (response.status === 200) {
         yield put(isLoggedIn(true));
     } else {

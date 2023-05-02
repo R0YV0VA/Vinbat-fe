@@ -29,6 +29,20 @@
     text-align: center;
     transition: all 0.2s ease-in-out;
 }
+@media (max-width: 800px) {
+    .search{
+        flex-direction: row;
+        width: 100%;
+    }
+    .search .search-input {
+        margin-left: 15px;
+        height: 50px;
+    }
+    .search .search-button {
+        margin-right: 15px;
+        height: 50px;
+    }
+}
 .search .search-button:hover {
     background-color: transparent;
     color: #ff3c3c;
