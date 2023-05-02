@@ -23,7 +23,6 @@ const Login = () => {
         login: login,
         password: password
     }
-    console.log(credentials)
     dispatch(loginAsync(credentials))
     }
 return (

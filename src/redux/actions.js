@@ -114,27 +114,52 @@ export const setMyAccountAsync = () => {
     }
 }
 
-export const isLoggedIn = (isLogged) => {
-    return {
-        type: ACTIONS.IS_LOGGED_IN,
-        payload: {
-            isLogged
-        }
-    }
-}
-
-export const isLoggedInAsync = () => {
-    return {
-        type: ACTIONS.IS_LOGGED_IN_ASYNC
-    }
-}
-
 export const isPopUpActive = (props) => {
     return {
         type: ACTIONS.IS_POP_UP_ACTIVE,
         payload: {
             isActive: props.isActive,
             type: props.type
+        }
+    }
+}
+
+export const setLoginName = (props) => {
+    return {
+        type: ACTIONS.SET_LOGIN_NAME,
+        payload: {
+            name: props.name,
+            login: props.login
+        }
+    }
+}
+
+export const setLoginNameAsync = (props) => {
+    return {
+        type: ACTIONS.SET_LOGIN_NAME_ASYNC,
+        payload: {
+            name: props.name,
+            login: props.login
+        }
+    }
+}
+
+export const changePassword = (props) => {
+    return {
+        type: ACTIONS.SET_PASSWORD,
+        payload: {
+            oldpassword: props.oldpassword,
+            newpassword: props.newpassword
+        }
+    }
+}
+
+export const changePasswordAsync = (props) => {
+    return {
+        type: ACTIONS.SET_PASSWORD_ASYNC,
+        payload: {
+            oldpassword: props.oldpassword,
+            newpassword: props.newpassword
         }
     }
 }

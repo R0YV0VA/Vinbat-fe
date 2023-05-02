@@ -1,19 +1,19 @@
 import { put, takeEvery, call } from 'redux-saga/effects';
 import ACTIONS from '../constants';
-import { login, loading, alert } from '../actions';
+import { setLoginName, loading, alert, isPopUpActive } from '../actions';
 import axios from 'axios';
-import routes from '../../routes';
-import { setAccessToken } from '../../utils/accessToken';
+import { getAccessToken, setAccessToken } from '../../utils/accessToken';
 
 const ServerApi = axios.create({
     baseURL: process.env.REACT_APP_API_URL,
+    headers: { Authorization: `Bearer ${getAccessToken()}` }
   });
 
-const loginRequest = (credentials) => {
+const loginNameRequest = (credentials) => {
     return new Promise((resolve, reject) => {
-        ServerApi.post('auth/login', {
-            login: credentials.login,
-            password: credentials.password
+        ServerApi.put('users/change-login-name', {
+            name: credentials.name,
+            login: credentials.login
         })
             .then(response => {
                 resolve(response);
@@ -31,19 +31,18 @@ const setCookie = (token) => {
     })
 }
 
-function* loginWorker(cred) {
+function* loginNameWorker(cred) {
     const payload = {
-        login: cred.payload.login,
-        password: cred.payload.password
+        name: cred.payload.name,
+        login: cred.payload.login
     }
     yield put(loading(true));
-    const state = yield login(payload);
+    const state = yield setLoginName(payload);
     const credentials = state.payload;
-    const response = yield call(loginRequest, credentials);
+    const response = yield call(loginNameRequest, credentials);
     if (response.status === 200) {
-        yield call(setCookie, response.data);
+        yield put(isPopUpActive(false));
         yield put(loading(false));
-        window.location.href = routes.HOME;
         var props = {
             message: 'Успішно!',
             type: 'success',
@@ -57,6 +56,7 @@ function* loginWorker(cred) {
             isAlert: false
         }
         yield put(alert(props));
+        window.location.reload();
     } else {
         yield put(loading(false));
         var props = {
@@ -75,6 +75,6 @@ function* loginWorker(cred) {
     }
 }
 
-export default function* loginWatcher() {
-    yield takeEvery(ACTIONS.LOGIN_ASYNC, loginWorker);
+export default function* loginNameWatcher() {
+    yield takeEvery(ACTIONS.SET_LOGIN_NAME_ASYNC, loginNameWorker);
 }

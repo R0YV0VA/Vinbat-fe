@@ -1,8 +1,8 @@
 import { ACCESS_TOKEN } from '../redux/constants'
 import { getCookie, setCookie, deleteCookie } from './cookie'
 
-// 14 weeks in seconds
-const STORE_AUTH_TOKEN_FOR = 8467200
+// 24 hours in seconds
+const STORE_AUTH_TOKEN_FOR = 24 * 60 * 60
 
 export const getAccessToken = () => {
   return getCookie(ACCESS_TOKEN)

@@ -5,8 +5,10 @@ import LoadingReducer from './reducers/LoadingReducer';
 import AlertReducer from './reducers/AlertReducer';
 import CaseReducer from './reducers/CaseReducer';
 import MyAccountReducer from './reducers/MyAccountReducer';
-import IsLoggedInReducer from './reducers/IsLoogedInReducer';
 import IsPopUpActive from './reducers/IsPopUpActive';
+import LoginNameReducer from './reducers/LoginNameReducer';
+import ChangePasswordReducer from './reducers/ChangePasswordReducer';
+
 import createSagaMiddleware from 'redux-saga';
 import rootWatcher from './sagas';
 import { composeWithDevTools } from 'redux-devtools-extension';
@@ -20,8 +22,9 @@ const rootReducer = combineReducers({
     alert: AlertReducer,
     case: CaseReducer,
     myAccount: MyAccountReducer,
-    isLoggedIn: IsLoggedInReducer,
-    isPopUpActive: IsPopUpActive
+    isPopUpActive: IsPopUpActive,
+    loginName: LoginNameReducer,
+    changePassword: ChangePasswordReducer,
 });
 
 const store = createStore(

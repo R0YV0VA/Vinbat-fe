@@ -1,3 +1,6 @@
+input{
+    border-radius: 10px;
+}
 input:focus{
     outline: none;
     border: 1px solid #ff3c3c;
@@ -5,11 +8,13 @@ input:focus{
 
 button {
     border: 1px #ff3c3c solid;
+    border-radius: 10px;
     background-color: #ff3c3c;
     color: #FFFFFF;
     cursor: pointer;
     text-align: center;
     transition: all 0.2s ease-in-out;
+    user-select: none;
 }
 button:hover {
     background-color: transparent;
