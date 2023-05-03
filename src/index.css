@@ -20,3 +20,7 @@ button:hover {
     background-color: transparent;
     color: #ff3c3c;
 }
+.main {
+    display: flex;
+    margin-top: 50px;
+  }

@@ -157,6 +157,7 @@ return (
                 <button onClick={editPopUp}>Редагувати</button>
                 <button onClick={changePasswordPopUp}>Змінити пароль</button>
                 <button onClick={logout}>Вийти</button>
+                {status === 1 && <button>Адмін панель</button> }
                 <p>Сума покупок: {purchasesAmount}</p>
                 <p>Знижка: {discount}%</p>
             </div>

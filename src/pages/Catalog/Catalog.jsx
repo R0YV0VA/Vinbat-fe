@@ -6,8 +6,8 @@ import { useDispatch, useSelector } from 'react-redux';
 
 const Catalog = () => {
 return (
-    <>
-    </>
+    <div className='main'>
+    </div>
 )
 }
 
