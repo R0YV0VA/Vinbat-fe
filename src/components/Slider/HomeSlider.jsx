@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
 import SearchInput from "../SearchInput/SearchInput";
+import first from "./img/1.jpg";
+import second from "./img/2.jpg";
+import third from "./img/3.jpg";
 import "./HomeSlider.css"
 export default class HomeSlider extends Component {
     render() {
@@ -40,9 +43,9 @@ export default class HomeSlider extends Component {
           <SearchInput />
           </div>
           <Slider className="box" {...settings}>
-            <img className="slider-img" src="/img/slider/1.jpg" alt="1" />
-            <img className="slider-img" src="/img/slider/2.jpg" alt="2" />
-            <img className="slider-img" src="/img/slider/3.jpg" alt="3" />
+            <img className="slider-img" src={first} alt="1" />
+            <img className="slider-img" src={second} alt="2" />
+            <img className="slider-img" src={third} alt="3" />
           </Slider>
         </div>
       );

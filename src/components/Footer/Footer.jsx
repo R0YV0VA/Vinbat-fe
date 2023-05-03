@@ -1,5 +1,6 @@
 import React from "react";
 import { MDBCol, MDBContainer, MDBRow, MDBFooter } from "mdbreact";
+import instagram from "./img/instagram.png";
 import "./Footer.css";
 
 const Footer = () => {
@@ -14,7 +15,7 @@ const Footer = () => {
           </MDBCol>
           <MDBCol md="6">
             <a href="#">
-                <img src="img/footer/instagram.png" width="40" height="40"/>
+                <img src={instagram} width="40" height="40"/>
             </a>    
           </MDBCol>
         </MDBRow>

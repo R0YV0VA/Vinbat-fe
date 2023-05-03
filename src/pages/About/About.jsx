@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import Cookies from 'universal-cookie'
-import routes from '../../routes';
-import { useDispatch, useSelector } from 'react-redux';
+import maxim from "./img/maxim.jpg"
+import vova from "./img/vova.jpg"
+import vlad from "./img/vlad.jpg"
 
 import './About.css';
 
@@ -18,17 +18,17 @@ return (
             <h1>Наша команда</h1>
             <div className='team'>
                 <div className='team-member'>
-                    <img src='./img/about-us/maxim.jpg' alt='team-member' />
+                    <img src={maxim} alt='team-member' />
                     <h3>Бандит в законі</h3>
                     <p>Розробник</p>
                 </div>
                 <div className='team-member'>
-                    <img src='./img/about-us/vova.jpg' alt='team-member' />
+                    <img src={vova} alt='team-member' />
                     <h3>Дніпровський тємщик</h3>
                     <p>Розробник</p>
                 </div>
                 <div className='team-member'>
-                    <img src='./img/about-us/vlad.jpg' alt='team-member' />
+                    <img src={vlad} alt='team-member' />
                     <h3>Жид</h3>
                     <p>Розробник</p>
                 </div>

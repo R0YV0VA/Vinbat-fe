@@ -71,6 +71,7 @@ const MyAccount = () => {
         dispatch(setLoginNameAsync(props))
     }
     
+    const unavailableSymbols = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '+', '=', '/', '\\', '|', '{', '}', '[', ']', ':', ';', '"', "'", ',', '.', '<', '>', '?', '~', '`']
     const [oldPassword, setOldPassword] = useState('')
     const [newPassword, setNewPassword] = useState('')
     const [repeatNewPassword, setRepeatNewPassword] = useState('')
@@ -102,6 +103,18 @@ const MyAccount = () => {
             dispatch(alertAsync(props))
             return
         }
+        for(let i = 0; i < unavailableSymbols.length; i++) {
+            if (newPassword.includes(unavailableSymbols[i]) || oldPassword.includes(unavailableSymbols[i])) {
+                const props = {
+                    isAlert: true,
+                    type: 'warning',
+                    message: 'Пароль містить недопустимі символи'
+                }
+                dispatch(alertAsync(props))
+                return
+            }
+        }
+
         const props = {
             oldpassword: oldPassword,
             newpassword: newPassword

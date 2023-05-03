@@ -21,6 +21,7 @@ const Register = () => {
     const isAlert = useSelector(state => state.alert.isAlert)
 
     const validate = () => {
+        const unavailableSymbols = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '+', '=', '/', '\\', '|', '{', '}', '[', ']', ':', ';', '"', "'", ',', '.', '<', '>', '?', '~', '`']
         if (password !== repassword) {
             const alertProps = {
                 isAlert: true,
@@ -47,6 +48,17 @@ const Register = () => {
             }
             dispatch(alertAsync(alertProps))
             return false
+        }
+        for (let i = 0; i < unavailableSymbols.length; i++) {
+            if (name.includes(unavailableSymbols[i])) {
+                const alertProps = {
+                    isAlert: true,
+                    type: 'warning',
+                    message: 'Ім\'я не може містити спеціальні символи'
+                }
+                dispatch(alertAsync(alertProps))
+                return false
+            }
         }
         return true
     }
