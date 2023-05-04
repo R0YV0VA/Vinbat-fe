@@ -8,6 +8,7 @@ import MyAccountReducer from './reducers/MyAccountReducer';
 import IsPopUpActive from './reducers/IsPopUpActive';
 import LoginNameReducer from './reducers/LoginNameReducer';
 import ChangePasswordReducer from './reducers/ChangePasswordReducer';
+import ResetPasswordReducer from './reducers/ResetPasswordReducer';
 
 import createSagaMiddleware from 'redux-saga';
 import rootWatcher from './sagas';
@@ -25,6 +26,7 @@ const rootReducer = combineReducers({
     isPopUpActive: IsPopUpActive,
     loginName: LoginNameReducer,
     changePassword: ChangePasswordReducer,
+    resetPassword: ResetPasswordReducer
 });
 
 const store = createStore(

@@ -17,10 +17,6 @@
     margin-top: 0.35em;
     user-select: none;
 }
-/* .header .link:hover{
-    text-decoration: underline #ff3c3c solid 3px;
-    margin-top: -0.2em;
-} */
 
 .header .link {
     position: relative;
@@ -36,9 +32,7 @@
     bottom: 2px;
     left: 50%;
     border-radius: 2px;
-
     transition: all 0.3s;
-
 }
 
 @media (any-hover:hover) {

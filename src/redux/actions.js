@@ -163,3 +163,23 @@ export const changePasswordAsync = (props) => {
         }
     }
 }
+
+export const resetPassword = (props) => {
+    return {
+        type: ACTIONS.RESET_PASSWORD,
+        payload: {
+            login: props.login,
+            password: props.password
+        }
+    }
+}
+
+export const resetPasswordAsync = (props) => {
+    return {
+        type: ACTIONS.RESET_PASSWORD_ASYNC,
+        payload: {
+            login: props.login,
+            password: props.password
+        }
+    }
+}

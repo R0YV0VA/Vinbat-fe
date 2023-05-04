@@ -80,7 +80,7 @@ return (
             <h1>Реєстрація</h1>
             <div className='form-group'>
                 <label htmlFor='name'>Ім'я</label>
-                <input type='text' className='form-control' id='name' placeholder="Введіть ім'я" onChange={(e) => setName(e.target.value)} />
+                <input type='text' className='form-control' id='name' placeholder="Введіть ім'я" value={name} onChange={(e) => setName(e.target.value)} />
                 <label htmlFor='login'>Електронна пошта</label>
                 <input type='email' id='email' className='form-control' value={login} onChange={(e) => setLogin(e.target.value)} placeholder='user@email.com' />
                 <label htmlFor='password'>Пароль</label>

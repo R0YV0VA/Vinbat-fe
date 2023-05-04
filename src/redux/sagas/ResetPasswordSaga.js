@@ -1,6 +1,6 @@
 import { put, takeEvery, call } from 'redux-saga/effects';
 import ACTIONS from '../constants';
-import { register, loading, alert } from '../actions';
+import { resetPassword, loading, alert } from '../actions';
 import axios from 'axios';
 import routes from '../../routes';
 
@@ -8,10 +8,9 @@ const ServerApi = axios.create({
     baseURL: process.env.REACT_APP_API_URL,
   });
 
-const registerRequest = (credentials) => {
+const resetPasswordRequest = (credentials) => {
     return new Promise((resolve, reject) => {
-        ServerApi.post('auth/register', {
-            name: credentials.name,
+        ServerApi.put('auth/newpass', {
             login: credentials.login,
             password: credentials.password
         })
@@ -24,21 +23,19 @@ const registerRequest = (credentials) => {
     })
 }
 
-function* registerWorker(cred) {
+function* resetPasswordWorker(cred) {
     const payload = {
-        name: cred.payload.name,
         login: cred.payload.login,
         password: cred.payload.password
     }
     yield put(loading(true));
-    const state = yield register(payload);
+    const state = yield resetPassword(payload);
     const credentials = state.payload;
-    const response = yield call(registerRequest, credentials);
-    console.log(response);
+    const response = yield call(resetPasswordRequest, credentials);
     if (response.status === 200) {
         yield put(loading(false));
         var props = {
-            message: 'Лист з підтвердженням реєстрації відправлено на вашу пошту',
+            message: 'Лист з підтвердженням зміни пароля відправлено на вашу пошту',
             type: 'success',
             isAlert: true
         }
@@ -51,28 +48,13 @@ function* registerWorker(cred) {
         }
         yield put(alert(props));
         window.location.href = routes.LOGIN;
-    } else if (response.request.status === 409) {
-        yield put(loading(false));
-        var props = {
-            message: 'Користувач з таким логіном вже існує!',
-            type: 'warning',
-            isAlert: true
-        }
-        yield put(alert(props));
-        yield new Promise(resolve => setTimeout(resolve, 3000));
-        props = {
-            message: '',
-            type: '',
-            isAlert: false
-        }
-        yield put(alert(props));
     } else {
+        yield put(loading(false));
         var props = {
             message: 'Упс, щось пішло не так...',
             type: 'danger',
             isAlert: true
         }
-        yield put(loading(false));
         yield put(alert(props));
         yield new Promise(resolve => setTimeout(resolve, 3000));
         props = {
@@ -84,6 +66,6 @@ function* registerWorker(cred) {
     }
 }
 
-export default function* registerWatcher() {
-    yield takeEvery(ACTIONS.REGISTER_ASYNC, registerWorker);
+export default function* resetPasswordWatcher() {
+    yield takeEvery(ACTIONS.RESET_PASSWORD_ASYNC, resetPasswordWorker);
 }

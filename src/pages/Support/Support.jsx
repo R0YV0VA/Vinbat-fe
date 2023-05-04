@@ -41,7 +41,7 @@ return (
         <div className='background'>
             <h1>Підтримка</h1>
             <div className='support'>
-                <div className='support__open_case w-50'>
+                <div className='support__open_case'>
                     <h2>Відкрити заявку</h2>
                     <input type='text' placeholder='Ваше ім`я' onChange={(e) => setUsername(e.target.value)} />
                     <input type='text' placeholder='Номер телефону, або електронну пошту' onChange={(e) => setConnection(e.target.value)} />
