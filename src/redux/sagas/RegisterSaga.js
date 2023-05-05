@@ -1,28 +1,8 @@
 import { put, takeEvery, call } from 'redux-saga/effects';
 import ACTIONS from '../constants';
 import { register, loading, alert } from '../actions';
-import axios from 'axios';
+import { registerRequest } from '../../api';
 import routes from '../../routes';
-
-const ServerApi = axios.create({
-    baseURL: process.env.REACT_APP_API_URL,
-  });
-
-const registerRequest = (credentials) => {
-    return new Promise((resolve, reject) => {
-        ServerApi.post('auth/register', {
-            name: credentials.name,
-            login: credentials.login,
-            password: credentials.password
-        })
-            .then(response => {
-                resolve(response);
-            })
-            .catch(error => {
-                resolve(error);
-            })
-    })
-}
 
 function* registerWorker(cred) {
     const payload = {

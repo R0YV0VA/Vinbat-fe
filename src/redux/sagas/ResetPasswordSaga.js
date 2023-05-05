@@ -1,27 +1,8 @@
 import { put, takeEvery, call } from 'redux-saga/effects';
 import ACTIONS from '../constants';
 import { resetPassword, loading, alert } from '../actions';
-import axios from 'axios';
+import { resetPasswordRequest } from '../../api';
 import routes from '../../routes';
-
-const ServerApi = axios.create({
-    baseURL: process.env.REACT_APP_API_URL,
-  });
-
-const resetPasswordRequest = (credentials) => {
-    return new Promise((resolve, reject) => {
-        ServerApi.put('auth/newpass', {
-            login: credentials.login,
-            password: credentials.password
-        })
-            .then(response => {
-                resolve(response);
-            })
-            .catch(error => {
-                resolve(error);
-            })
-    })
-}
 
 function* resetPasswordWorker(cred) {
     const payload = {

@@ -1,28 +1,7 @@
 import { put, takeEvery, call } from 'redux-saga/effects';
 import ACTIONS from '../constants';
 import { addcase, loading, alert } from '../actions';
-import axios from 'axios';
-
-const ServerApi = axios.create({
-    baseURL: process.env.REACT_APP_API_URL,
-  });
-
-const caseRequest = (props) => {
-    return new Promise((resolve, reject) => {
-        console.log(props);
-        ServerApi.post('cases', {
-            Username: props.username,
-            Connection: props.connection,
-            Message: props.message
-        })
-            .then(response => {
-                resolve(response);
-            })
-            .catch(error => {
-                resolve(error);
-            })
-    })
-}
+import { caseRequest } from '../../api';
 
 function* caseWorker(prop) {
     const payload = {

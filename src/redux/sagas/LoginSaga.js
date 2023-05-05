@@ -1,28 +1,9 @@
 import { put, takeEvery, call } from 'redux-saga/effects';
 import ACTIONS from '../constants';
 import { login, loading, alert } from '../actions';
-import axios from 'axios';
+import { loginRequest } from '../../api';
 import routes from '../../routes';
 import { setAccessToken } from '../../utils/accessToken';
-
-const ServerApi = axios.create({
-    baseURL: process.env.REACT_APP_API_URL,
-  });
-
-const loginRequest = (credentials) => {
-    return new Promise((resolve, reject) => {
-        ServerApi.post('auth/login', {
-            login: credentials.login,
-            password: credentials.password
-        })
-            .then(response => {
-                resolve(response);
-            })
-            .catch(error => {
-                resolve(error);
-            })
-    })
-}
 
 const setCookie = (token) => {
     return new Promise((resolve, reject) => {

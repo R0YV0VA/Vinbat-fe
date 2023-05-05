@@ -1,28 +1,8 @@
 import { put, takeEvery, call } from 'redux-saga/effects';
 import ACTIONS from '../constants';
 import { changePassword, loading, alert, isPopUpActive } from '../actions';
-import axios from 'axios';
-import { getAccessToken, setAccessToken } from '../../utils/accessToken';
-
-const ServerApi = axios.create({
-    baseURL: process.env.REACT_APP_API_URL,
-    headers: { Authorization: `Bearer ${getAccessToken()}` }
-  });
-
-const changePasswordRequest = (credentials) => {
-    return new Promise((resolve, reject) => {
-        ServerApi.put('users/change-password' ,{
-            oldpassword: credentials.oldpassword,
-            newpassword: credentials.newpassword
-        })
-            .then(response => {
-                resolve(response);
-            })
-            .catch(error => {
-                resolve(error);
-            })
-    })
-}
+import { changePasswordRequest } from '../../api';
+import { setAccessToken } from '../../utils/accessToken';
 
 const setCookie = (token) => {
     return new Promise((resolve, reject) => {

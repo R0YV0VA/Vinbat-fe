@@ -1,26 +1,7 @@
 import { put, takeEvery, call } from 'redux-saga/effects';
 import ACTIONS from '../constants';
 import { setMyAccount, loading, alert } from '../actions';
-import axios from 'axios';
-import { getAccessToken } from '../../utils/accessToken';
-
-const ServerApi = axios.create({
-    baseURL: process.env.REACT_APP_API_URL,
-  });
-
-const myAccountRequest = () => {
-    return new Promise((resolve, reject) => {
-        ServerApi.get('users/my-account', {
-            headers: { Authorization: `Bearer ${getAccessToken()}` }
-        })
-            .then(response => {
-                resolve(response);
-            })
-            .catch(error => {
-                resolve(error);
-            })
-    })
-}
+import { myAccountRequest } from '../../api';
 
 function* myAccountWorker() {
     yield put(loading(true));
