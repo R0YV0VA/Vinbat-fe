@@ -10,9 +10,9 @@ const HomeCatalogue = () => {
             <h1>Наші товари</h1>
             <div className="element-container">
                 <div className="element">
-                    <img src={wheels} alt="wheel" />
+                    <img src={powerInverter} alt="all-goods" />
                     <span>
-                        <h2>Шини</h2>
+                        <h2>Усі товари</h2>
                     </span>
                 </div>
                 <div className="element">
@@ -22,9 +22,9 @@ const HomeCatalogue = () => {
                     </span>
                 </div>
                 <div className="element">
-                    <img src={powerInverter} alt="power-inverter" />
+                    <img src={wheels} alt="wheel" />
                     <span>
-                        <h2>Перетворювач напруги</h2>
+                        <h2>Шини</h2>
                     </span>
                 </div>
             </div>

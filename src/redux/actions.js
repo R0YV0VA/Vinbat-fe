@@ -183,3 +183,20 @@ export const resetPasswordAsync = (props) => {
         }
     }
 }
+
+export const setCatalogPages = (props) => {
+    return {
+        type: ACTIONS.SET_CATALOG_PAGES,
+        payload: {
+            batteriesPages: props.batteriesPages,
+            tiresPages: props.tiresPages,
+            fullPages: props.fullPages,
+        }
+    }
+}
+
+export const setCatalogPagesAsync = () => {
+    return {
+        type: ACTIONS.SET_CATALOG_PAGES_ASYNC
+    }
+}

@@ -7,6 +7,7 @@ import myAccountWatcher from "./MyAccountSaga";
 import loginNameWatcher from "./LoginNameSaga";
 import changePasswordWatcher from "./ChangePasswordSaga";
 import resetPasswordWatcher from "./ResetPasswordSaga";
+import cataloguePagesWatcher from "./CataloguePagesSaga";
 
 export default function* rootWatcher() {
     yield all([
@@ -17,6 +18,7 @@ export default function* rootWatcher() {
         myAccountWatcher(),
         loginNameWatcher(),
         changePasswordWatcher(),
-        resetPasswordWatcher()
+        resetPasswordWatcher(),
+        cataloguePagesWatcher()
     ])
 }

@@ -1,0 +1,85 @@
+.background{
+    width: 90%;
+}
+.scrollbar{
+    width: 100%;
+    height: 370px;
+    overflow: scroll;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: row;
+    margin: 5px;
+}
+.scrollbar:hover{
+    overflow-x: scroll;
+}
+.good{
+    background-color: #f1f1f1;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.good:hover{
+    background-color: #e1e1e1;
+}
+.good h1{
+    font-size: 22px;
+    text-align: left;
+    margin-left: 5px;
+}
+.good p{
+    font-size: 17px;
+    text-align: left;
+    margin-left: 5px;
+}
+.good img{
+    width: 200px;
+    border-radius: 10px;
+}
+.pagination{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+.pagination .pagination__page{
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ff3c3c;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+.pagination .pagination__page:hover{
+    background-color: #ff3c3c;
+    color: #fff;
+}
+.pagination .pagination__page a{
+    color: #ff3c3c;
+    text-decoration: none;
+}
+.pagination .pagination__page:hover a{
+    color: #fff;
+}
+@media (max-width: 800px) {
+    .background{
+        width: 90%;
+        height: 100%;
+    }
+    .scrollbar{
+        height: 450px;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        flex-direction: column;
+    }
+    .good img{
+        width: 300px;
+    }
+  }

@@ -10,6 +10,7 @@ import Register from './pages/Register/Register';
 import Support from './pages/Support/Support';
 import Background from './components/Background/Background';
 import MyAccount from './pages/MyAccount/MyAccount';
+import Admin from './pages/Admin/Admin';
 import Footer from './components/Footer/Footer';
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
         <Route path={routes.REGISTER} element={ <Register /> } />
         <Route path={routes.SUPPORT} element={ <Support /> } />
         <Route path={routes.MY_ACCOUNT} element={ <MyAccount /> } />
+        <Route path={routes.ADMIN} element={ <Admin /> } />
         <Route path="*" element={ <NotFound /> } />
       </Routes>
       <Background />

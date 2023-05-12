@@ -4,6 +4,8 @@ import { setMyAccountAsync, isPopUpActive, setLoginNameAsync, changePasswordAsyn
 import Loading from '../../components/Loading/Loading';
 import PopUpForm from '../../components/PopUpForm/PopUpForm';
 import { removeAccessToken } from '../../utils/accessToken';
+import routes from '../../routes';
+
 import validator from 'validator'
 
 import Alert from '../../components/Alert/Alert';
@@ -25,6 +27,10 @@ const MyAccount = () => {
     const logout = () => {
         removeAccessToken()
         window.location = '/'
+    }
+
+    const openAdminPanel = () => {
+        window.location = routes.ADMIN
     }
 
     const editPopUp = () => {
@@ -157,7 +163,7 @@ return (
                 <button onClick={editPopUp}>Редагувати</button>
                 <button onClick={changePasswordPopUp}>Змінити пароль</button>
                 <button onClick={logout}>Вийти</button>
-                {status === 1 && <button>Адмін панель</button> }
+                {status === 1 && <button onClick={openAdminPanel}>Адмін панель</button> }
                 <p>Сума покупок: {purchasesAmount}</p>
                 <p>Знижка: {discount}%</p>
             </div>

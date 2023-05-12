@@ -38,6 +38,21 @@ function* loginWorker(cred) {
             isAlert: false
         }
         yield put(alert(props));
+    } else if (response.request.status === 401) {
+        yield put(loading(false));
+        var props = {
+            message: 'Помилка авторизації!',
+            type: 'danger',
+            isAlert: true
+        }
+        yield put(alert(props));
+        yield new Promise(resolve => setTimeout(resolve, 3000));
+        props = {
+            message: '',
+            type: '',
+            isAlert: false
+        }
+        yield put(alert(props));
     } else {
         yield put(loading(false));
         var props = {

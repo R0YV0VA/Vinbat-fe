@@ -82,7 +82,7 @@ export const loginRequest = (credentials) => {
 
 export const myAccountRequest = () => {
   return new Promise((resolve, reject) => {
-      api.get('users/my-account',)
+      api.get('users/my-account')
           .then(response => {
               resolve(response);
           })
@@ -122,3 +122,15 @@ export const resetPasswordRequest = (credentials) => {
           })
   })
 }
+
+export const catalogPagesRequest = () => {
+    return new Promise((resolve, reject) => {
+        api.get('catalogue/pages-count')
+            .then(response => {
+                resolve(response);
+            })
+            .catch(error => {
+                resolve(error);
+            })
+    })
+    }
