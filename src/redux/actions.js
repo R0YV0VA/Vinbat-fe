@@ -200,3 +200,22 @@ export const setCatalogPagesAsync = () => {
         type: ACTIONS.SET_CATALOG_PAGES_ASYNC
     }
 }
+
+export const setCatalogGoods = (goods) => {
+    return {
+        type: ACTIONS.SET_CATALOG_GOODS,
+        payload: {
+            ...goods
+        }
+    }
+}
+
+export const setCatalogGoodsAsync = (props) => {
+    return {
+        type: ACTIONS.SET_CATALOG_GOODS_ASYNC,
+        payload: {
+            page: props.page,
+            category: props.category
+        }
+    }
+}

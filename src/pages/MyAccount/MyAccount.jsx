@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { setMyAccountAsync, isPopUpActive, setLoginNameAsync, changePasswordAsync, alertAsync } from '../../redux/actions';
+import _replace from 'lodash/replace'
 import Loading from '../../components/Loading/Loading';
 import PopUpForm from '../../components/PopUpForm/PopUpForm';
 import { removeAccessToken } from '../../utils/accessToken';
@@ -30,7 +31,11 @@ const MyAccount = () => {
     }
 
     const openAdminPanel = () => {
-        window.location = routes.ADMIN
+        // ADMIN: '/admin-panel?page=:page&category=:category'
+        let url = routes.ADMIN
+        url = _replace(url, ':page', 1)
+        url = _replace(url, ':category', 0)
+        window.location = url
     }
 
     const editPopUp = () => {

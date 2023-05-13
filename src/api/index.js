@@ -134,3 +134,18 @@ export const catalogPagesRequest = () => {
             })
     })
     }
+
+export const goodsRequest = (props) => {
+    return new Promise((resolve, reject) => {
+        api.get('catalogue/goods', {
+            page: props.page,
+            category: props.category,
+        })
+            .then(response => {
+                resolve(response);
+            })
+            .catch(error => {
+                resolve(error);
+            })
+    })
+}

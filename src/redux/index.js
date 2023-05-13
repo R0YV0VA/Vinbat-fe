@@ -10,6 +10,7 @@ import LoginNameReducer from './reducers/LoginNameReducer';
 import ChangePasswordReducer from './reducers/ChangePasswordReducer';
 import ResetPasswordReducer from './reducers/ResetPasswordReducer';
 import CataloguePagesReducer from './reducers/CataloguePagesReducer';
+import GoodsReducer from './reducers/GoodsReducer';
 
 import createSagaMiddleware from 'redux-saga';
 import rootWatcher from './sagas';
@@ -29,6 +30,7 @@ const rootReducer = combineReducers({
     changePassword: ChangePasswordReducer,
     resetPassword: ResetPasswordReducer,
     cataloguePages: CataloguePagesReducer,
+    goods: GoodsReducer
 });
 
 const store = createStore(

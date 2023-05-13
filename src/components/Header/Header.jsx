@@ -1,9 +1,16 @@
 import React, { useEffect } from 'react';
 import { Nav, Navbar, Container, NavDropdown } from 'react-bootstrap';
 import { getAccessToken } from '../../utils/accessToken';
+import _replace from 'lodash/replace'
 import routes from '../../routes';
 import './Header.css';
 const Header = () =>{
+  const openCataloguePanel = () => {
+    let url = routes.CATALOG
+    url = _replace(url, ':page', 1)
+    url = _replace(url, ':category', 0)
+    return url
+}
   useEffect(() => {
   }, [])
     return (
@@ -18,7 +25,7 @@ const Header = () =>{
               <Nav className="me-auto"/>
               <Nav>
               <div className='link'>
-              <Nav.Link href={routes.CATALOG}>
+              <Nav.Link href={openCataloguePanel()}>
                     Каталог
               </Nav.Link>
               </div>
